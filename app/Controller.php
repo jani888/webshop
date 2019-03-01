@@ -11,7 +11,7 @@ class Controller
     // code...
   }
 
-  public function show($view_name, $props = [])
+  public function showView($view_name, $props = [])
   {
     ob_start();
     extract($props);

@@ -12,8 +12,9 @@ class HomeController extends Controller
 
   public function index()
   {
-    $this->show('home');
+    $this->showView('home');
   }
+
 }
 
 

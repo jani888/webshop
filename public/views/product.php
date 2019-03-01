@@ -121,122 +121,39 @@
   </header>
   <main>
     <section class="section pb-0 bg-gradient-warning mt-200">
-      <div class="container">
-        <div class="row row-grid align-items-center">
-          <div class="col-lg-6 order-lg-1">
-            <?php foreach($products as $product): ?>
-            <div class="card shadow shadow-lg--hover mt-5">
-              <div class="card-body">
-                <div class="d-flex px-3">
-                  <div>
-                    <img src="<?=$product->img?>" width="150">
-                  </div>
-                  <div class="pl-4">
-                    <h5 class="title text-primary"><b><?=$product->name?></b></h5>
-                    <small class="text-muted"><?=$product->shortDescription()?></small><br>
-                    <a href="products/<?=$product->id?>" class="text-info">Tovább »</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach ?>
-          </div>
-        </div>
-      </div>
-      <!-- SVG separator -->
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
     </section>
     <section class="section pb-0 mt-5 mb-5">
       <div class="container">
-        <div class="card bg-gradient-primary shadow-lg border-0">
-          <div class="p-5">
-            <div class="row align-items-center">
-              <div class="col-lg-8">
-                <h3 class="text-white">We made website building easier for you.</h3>
-                <p class="lead text-white mt-3">I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture.</p>
+        <div class="row">
+          <div class="col-5 mr-3 border-right">
+            <img src="<?=base_url() . '/' . $product->img?>" alt="" style="width: 100%">
+          </div>
+          <div class="col">
+            <h3 class="text-primary"><b><?=$product->name?></b></h3>
+            <p><?=$product->description?></p>
+
+            <h4 class="text-success mb-0"><?=$product->price()?></h4>
+            <small class="text-muted"><i class="fa fa-cube"></i><?=$product->stock?></small>
+
+            <form class="" action="cart" method="post">
+              <input type="hidden" name="product_id" value="<?=$product->id?>">
+              <div class="row mt-3">
+               <div class="col-md-2">
+                 <div class="form-group">
+                   <div class="input-group-sm mb-4">
+                     <input class="form-control" placeholder="db" type="number" value="1">
+                   </div>
+                 </div>
+               </div>
+               <div class="col-md-4 ml-0 pl-0">
+                <button type="submit" class="btn-primary btn btn-sm"><i class="fa fa-shopping-cart"></i> Kosárba</button>
               </div>
-              <div class="col-lg-3 ml-lg-auto">
-                <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-lg btn-block btn-white">Download HTML</a>
               </div>
-            </div>
+            </form>
+
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section section-lg bg-gradient-default">
-      <div class="container pt-lg pb-300">
-        <div class="row text-center justify-content-center">
-          <div class="col-lg-10">
-            <h2 class="display-3 text-white">Build something</h2>
-            <p class="lead text-white">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice.</p>
-          </div>
-        </div>
-        <div class="row row-grid mt-5">
-          <div class="col-lg-4">
-            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-              <i class="ni ni-settings text-primary"></i>
-            </div>
-            <h5 class="text-white mt-3">Building tools</h5>
-            <p class="text-white mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <div class="col-lg-4">
-            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-              <i class="ni ni-ruler-pencil text-primary"></i>
-            </div>
-            <h5 class="text-white mt-3">Grow your market</h5>
-            <p class="text-white mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <div class="col-lg-4">
-            <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-              <i class="ni ni-atom text-primary"></i>
-            </div>
-            <h5 class="text-white mt-3">Launch time</h5>
-            <p class="text-white mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-      <!-- SVG separator -->
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </section>
-    <section class="section section-lg pt-lg-0 section-contact-us">
-      <div class="container">
-        <div class="row justify-content-center mt--300">
-          <div class="col-lg-8">
-            <div class="card bg-gradient-secondary shadow">
-              <div class="card-body p-lg-5">
-                <h4 class="mb-1">Szeretnél értesülni új termékeinkről?</h4>
-                <p class="mt-0">Iratkozz fel hírlevelünkre, hogy értesülhess újdonságainkról, akcióinkról.</p>
-                <div class="form-group mt-5">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-user-run"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Neved" type="text">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Email címed" type="email">
-                  </div>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-default btn-round btn-block btn-lg">Feliratkozás</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   </main>
