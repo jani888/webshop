@@ -1,9 +1,9 @@
 <?php
 
 /**
- * HomeController
+ * CartController
  */
-class ProductController extends Controller
+class CartController extends Controller
 {
   function __construct()
   {
@@ -15,10 +15,9 @@ class ProductController extends Controller
     $product_id = request('product_id');
     $amount = request('amount');
 
-    $products = session('cart');
-    $products[] = ['id' => $product_id, 'amount' => $amount];
-    
-    session('cart', $products);
+    CartRepository::add($product_id, $amount);
+
+    back();
   }
 }
 

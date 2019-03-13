@@ -135,7 +135,7 @@
             <h4 class="text-success mb-0"><?=$product->price()?></h4>
             <small class="text-muted"><i class="fa fa-cube"></i><?=$product->stock?></small>
 
-            <form class="" action="cart" method="post">
+            <form class="" action="<?=base_url()?>/cart" method="post">
               <input type="hidden" name="product_id" value="<?=$product->id?>">
               <div class="row mt-3">
                <div class="col-md-2">

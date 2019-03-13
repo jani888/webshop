@@ -1,7 +1,7 @@
 <?php
 
 function base_url(){
-  return "http://localhost/php/gagyi_webshop";
+  return config('base_url');
 }
 
 function str_contains($text, $string){
@@ -10,5 +10,10 @@ function str_contains($text, $string){
 
 function base_dir(){
   return dirname(__FILE__);
+}
+
+function back(){
+  echo $_SERVER['HTTP_REFERER'];
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 ?>

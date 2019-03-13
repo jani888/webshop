@@ -10,7 +10,7 @@ class Router
     $routes = self::routes();
     $redirect = self::class . "::handle";
     array_walk($routes, function ($route) use ($uri, $redirect){
-      if($uri == $route['uri'] && $_SERVER['REQUEST_METHOD'] == $route['type']) return call_user_func($redirect, $route, $uri);
+      if($uri == $route['uri'] && Request::method() == $route['type']) return call_user_func($redirect, $route, $uri);
       if(!str_contains($route['uri'], ':')){
         return;
       }
@@ -26,6 +26,7 @@ class Router
         if($token != $uri_tokens[$index]) return;
       }
     });
+    echo "404";
   }
 
   private static function handle($route, $uri, $params = []){

@@ -3,6 +3,8 @@
 require 'app.php';
 
 require 'config/Config.php';
+require 'session/Session.php';
+require 'request/Request.php';
 require 'routes/Router.php';
 
 require 'helpers.php';
