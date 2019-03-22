@@ -15,6 +15,7 @@ class Controller
   {
     ob_start();
     extract($props);
+    extract(ViewComposer::extractVariables());
     include sprintf("%s/public/views/%s.php", base_dir(), $view_name);
     $html = ob_get_clean();
     echo $html;

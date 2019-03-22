@@ -20,7 +20,7 @@ class Model
 
   public static function find($id)
   {
-    return self::getConnection()->query("SELECT * FROM products WHERE id = $id")->fetchObject(static::class);
+    return self::getConnection()->query("SELECT * FROM products WHERE id = '$id'")->fetchObject(static::class);
   }
 }
 

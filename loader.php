@@ -8,6 +8,7 @@ require 'request/Request.php';
 require 'routes/Router.php';
 
 require 'helpers.php';
+require 'ViewComposer/ViewComposer.php';
 require 'app/Controller.php';
 
 

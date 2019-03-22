@@ -44,6 +44,9 @@ class Router
         ["type" => "GET", "uri" => "products/:id", "controller" => "ProductController", "method" => "show"],
 
         ["type" => "POST", "uri" => "cart", "controller" => "CartController", "method" => "create"],
+        ["type" => "POST", "uri" => "cart/remove", "controller" => "CartController", "method" => "delete"],
+
+        ["type" => "GET", "uri" => "checkout", "controller" => "CheckoutController", "method" => "index"],
     ];
   }
 }

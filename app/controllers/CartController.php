@@ -19,6 +19,14 @@ class CartController extends Controller
 
     back();
   }
+
+  public function delete(){
+      $product_id = request('id');
+
+      CartRepository::remove($product_id);
+
+      back();
+  }
 }
 
 

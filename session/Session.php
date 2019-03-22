@@ -16,7 +16,7 @@ class Session
 }
 
 function session($key, $value = null){
-  if($value == null){
+  if($value === null){
     return session_get($key);
   }
   session_set($key, $value);

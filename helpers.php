@@ -16,4 +16,8 @@ function back(){
   echo $_SERVER['HTTP_REFERER'];
   header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
-?>
+
+function array_first($array){
+    reset($array);
+    return current($array);
+}

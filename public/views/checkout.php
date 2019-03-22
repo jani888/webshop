@@ -27,32 +27,48 @@
       <div class="container">
           <a href="<?=base_url()?>/products"><< Vissza</a>
         <div class="row">
-          <div class="col-5 mr-3 border-right">
-            <img src="<?=base_url() . '/' . $product->img?>" alt="" style="width: 100%">
-          </div>
           <div class="col">
-            <h3 class="text-primary"><b><?=$product->name?></b></h3>
-            <p><?=$product->description?></p>
+            <h3 class="text-primary"><b>Kosár</b></h3>
 
-            <h4 class="text-success mb-0"><?=$product->price()?></h4>
-            <small class="text-muted"><i class="fa fa-cube"></i><?=$product->stock?></small>
-
-            <form class="" action="<?=base_url()?>/cart" method="post">
-              <input type="hidden" name="product_id" value="<?=$product->id?>">
-              <div class="row mt-3">
-               <div class="col-md-2">
-                 <div class="form-group">
-                   <div class="input-group-sm mb-4">
-                     <input class="form-control" placeholder="db" type="number" name="amount" value="1">
-                   </div>
-                 </div>
-               </div>
-               <div class="col-md-4 ml-0 pl-0">
-                <button type="submit" class="btn-primary btn btn-sm"><i class="fa fa-shopping-cart"></i> Kosárba</button>
-              </div>
-              </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Termék</th>
+                        <th>Mennyiség</th>
+                        <th>Egységár</th>
+                        <th>Ár</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($cart as $item): ?>
+                        <tr>
+                            <td><?=$item->name?></td>
+                            <td><?=$item->amount?></td>
+                            <td><?=$item->price()?></td>
+                            <td><?=number_format($item->price* $item->amount/100.0, 2, '.', ' ') . " Ft"?></td>
+                            <td>
+                                <form action="<?=base_url()?>/cart/remove" method="post">
+                                    <input type="hidden" name="id" value="<?=$item->id?>">
+                                    <button type="submit" class="btn btn-simple btn-danger">x</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><b>Összesen: </b></td>
+                        <td><b><?=number_format($total_price/100.0, 2, '.', ' ') . " Ft"?></b></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <form class="" action="<?=base_url()?>/checkout" method="post">
+                <button type="submit" class="btn btn-primary">Várárlás</button>
             </form>
-
           </div>
         </div>
 
