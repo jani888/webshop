@@ -15,4 +15,5 @@ require 'app/Controller.php';
 //MODELS
 require 'app/models/Model.php';
 require 'app/models/Product.php';
+require 'app/models/Invoice.php';
 ?>

@@ -67,6 +67,18 @@
                 </tfoot>
             </table>
             <form class="" action="<?=base_url()?>/checkout" method="post">
+                <div class="form-group">
+                  <label for="name">Név</label>
+                  <input type="text" name="name" placeholder="Név" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" placeholder="Email cím" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="name">Cím</label>
+                  <input type="text" name="address" placeholder="Cím" class="form-control">
+                </div>
                 <button type="submit" class="btn btn-primary">Várárlás</button>
             </form>
           </div>

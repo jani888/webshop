@@ -13,9 +13,13 @@ function base_dir(){
 }
 
 function back(){
-  echo $_SERVER['HTTP_REFERER'];
   header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
+
+function redirect($url){
+  header('Location: ' . $url);
+}
+
 
 function array_first($array){
     reset($array);

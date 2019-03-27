@@ -15,12 +15,40 @@ class Model
 
   public static function all()
   {
-    return self::getConnection()->query("SELECT * FROM products")->fetchAll(PDO::FETCH_CLASS, static::class);
+    $table = self::tableName();
+    return self::getConnection()->query("SELECT * FROM $table")->fetchAll(PDO::FETCH_CLASS, static::class);
   }
 
   public static function find($id)
   {
-    return self::getConnection()->query("SELECT * FROM products WHERE id = '$id'")->fetchObject(static::class);
+    $table = self::tableName();
+    return self::getConnection()->query("SELECT * FROM $table WHERE id = '$id'")->fetchObject(static::class);
+  }
+
+  protected static function tableName(){
+    //ex.: Product => products
+    return lcfirst(static::class) . 's';
+  }
+
+  public static function create($values)
+  {
+    $table = self::tableName();
+
+    $keys = array_keys($values);
+    $params = "";
+    foreach ($keys as $field) {
+      $params .= " :$field,";
+    }
+    $params = rtrim($params,",");
+    $fields = implode(', ', $keys);
+
+    print_r("INSERT INTO $table ($fields) VALUES ($params)");
+    $stmt= self::getConnection()->prepare("INSERT INTO $table ($fields) VALUES ($params)");
+    $stmt->execute($values);
+
+    echo "\nPDO::errorInfo():\n";
+    print_r($stmt->errorInfo());
+
   }
 }
 
